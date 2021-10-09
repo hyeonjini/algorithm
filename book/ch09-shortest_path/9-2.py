@@ -1,3 +1,6 @@
+"""
+Dijkstra with heapq
+"""
 import heapq
 import sys
 
