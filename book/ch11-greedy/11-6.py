@@ -13,7 +13,4 @@ food_times = list(map(int, input().split()))
 def solution(k, food_times):
     if sum(food_times) < k:
         return -1
-
-    
-
     return None
