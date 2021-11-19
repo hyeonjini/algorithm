@@ -8,8 +8,8 @@ input = sys.stdin.readline
 if __name__ == "__main__":
     n = int(input())
     m = int(input())
-
-    edges = [[10001] * (n + 1) for _ in range(n + 1)]
+    INF = int(1e9)
+    edges = [[INF] * (n + 1) for _ in range(n + 1)]
     for a in range(1, n + 1):
         for b in range(1, n + 1):
             if a == b:
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     for a in range(1, n + 1):
         for b in range(1, n + 1):
-            if edges[a][b] == 10001:
+            if edges[a][b] == INF:
                 print(0, end = " ")
             else:
                 print(edges[a][b], end = " ")
