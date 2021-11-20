@@ -1,7 +1,6 @@
 
 def solution(record):
     answer = []
-    history = []
     user_ids = {}
     for data in record:
         data = data.split()
