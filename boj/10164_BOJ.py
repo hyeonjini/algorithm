@@ -2,17 +2,19 @@
 격자상의 경로
 """
 import sys
-import copy
+from math import ceil
 input = sys.stdin.readline
 
 def solution(n, m, k):
     answer = 0
-    graph = [[0] * (m + 1) for _ in range(n + 1)]
 
     if k != 0:
         
-        mid = [k//m + 1, k % m]
-        end = [n - (k//m + 1), m - k % m]
+        mid_x = ceil(k/m)
+        mid_y = k % m if k % m != 0 else m
+        mid = [mid_x, mid_y]
+        # print("mid", mid)
+        end = [(n - mid_x) + 1, (m - mid_y) + 1]
         first_root = find_root(mid)
         second_root = find_root(end)
         answer = first_root * second_root
@@ -35,7 +37,7 @@ def find_root(end):
         for j in range(1, m + 1):
             graph[i][j] = graph[i-1][j] + graph[i][j-1]
 
-    print(graph)
+    # print(graph)
 
     return graph[end_x][end_y]
 
