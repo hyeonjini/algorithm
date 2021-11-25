@@ -39,5 +39,5 @@ def dfs(i, now):
 dfs(1, number[0])
 
 
-print(max_value)
 print(min_value)
+print(max_value)

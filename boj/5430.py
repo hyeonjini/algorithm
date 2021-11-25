@@ -11,9 +11,8 @@ def solution(commands, arr):
     direction = True
     for command in commands:
         if command == "R":
-            # print(direction, '->', end='')
             direction = not direction 
-            # print(direction)
+
         elif command == "D":
             if len(q) == 0:
                 return 'error'
@@ -28,10 +27,10 @@ def solution(commands, arr):
     return answer
 
 if __name__ == "__main__":
-    t = int(input())
+    test_case = int(input())
     answers = []
 
-    for tc in range(t):
+    for tc in range(test_case):
         commands = list(input().rstrip())
         # print(commands)
         n = int(input())
