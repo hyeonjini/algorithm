@@ -61,14 +61,50 @@ class Trie:
                 break
         
         return words
+    
+    def numbers_starts_with(self, prefix):
+        current_node = self.head
+
+        for p in prefix:
+            if p in current_node.child:
+                current_node = current_node.child[p]
+            else:
+                return 0
+        print(current_node.child)
+        return len([current_node])
 
     
 def solution(n, phone):
-    answer = True
 
-    return answer
+    trie = Trie()
+    # 전화번호 Trie 자료구조에 insert
+    for phone in phones:
+        trie.insert(phone)
+    
+    # 하나의 번호가 다른 번호의 prefix인지 검사
+    for phone in phones:
+        if trie.numbers_starts_with(phone) > 1:
+            return False
+    
+    return True
 
 if __name__ == "__main__":
 
     tc = int(input())
+    answers = []
+    for _ in range(tc):
+        n = int(input())
+        phones = []
+        for _ in range(n):
+            phones.append(input().rstrip())
+        
+        if solution(n, phones):
+            answers.append("YES")
+        else:
+            answers.append("NO")
+    
+    for answer in answers:
+        print(answer)
+
+
 
