@@ -1,6 +1,7 @@
 boj/.idea
 boj/.idea/
 test/
+study/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
