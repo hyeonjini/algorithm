@@ -70,8 +70,8 @@ class Trie:
                 current_node = current_node.child[p]
             else:
                 return 0
-        print(current_node.child)
-        return len([current_node])
+
+        return len(current_node.child)
 
     
 def solution(n, phone):
@@ -83,7 +83,7 @@ def solution(n, phone):
     
     # 하나의 번호가 다른 번호의 prefix인지 검사
     for phone in phones:
-        if trie.numbers_starts_with(phone) > 1:
+        if trie.numbers_starts_with(phone) > 0:
             return False
     
     return True
