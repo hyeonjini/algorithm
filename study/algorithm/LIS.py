@@ -16,6 +16,7 @@ def LIS_DP(arr):
     answer = max(dp)
     return answer
 
+# DP와 bisect를 사용하는 방법
 def LIS_Bisect(arr):
     dp = [arr[0]]
     for i in range(len(arr)):
