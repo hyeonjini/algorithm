@@ -44,28 +44,6 @@ def solution(h, w, graph):
 def get_cheese(graph, w, h):
     cheese = 0
 
-    # visited = [[False] * w for _ in range(h)]
-
-    # for i in range(h):
-    #     for j in range(w):
-    #         if graph[i][j] == 1 and visited[i][j] == False:
-    #             cheese += 1
-    #             q = deque([])
-    #             q.append([i, j])
-    #             visited[i][j] = True
-
-    #             while q:
-    #                 x, y = q.popleft()
-    #                 for k in range(4):
-    #                     nx = x + dx[k]
-    #                     ny = y + dy[k]
-
-    #                     if nx >= h or ny >= w or nx < 0 or ny < 0:
-    #                         continue
-    #                     if visited[nx][ny] == False and graph[nx][ny] == 1:
-    #                         q.append([nx, ny])
-    #                         cheese += 1
-    #                         visited[nx][ny] = True
     for i in range(h):
         for j in range(w):
             if graph[i][j] == 1:
