@@ -14,15 +14,26 @@ input = sys.stdin.readline
 
 #     return True
 
-def solution(phone_book):
-    for i in range(len(phone_book)): 
-        pivot = phone_book[i] 
-        for j in range(i+1, len(phone_book)): 
-            strlen = min(len(pivot), len(phone_book[j])) 
-            if pivot[:strlen] == phone_book[j][:strlen]: 
-                return False 
+# def solution(phone_book):
+#     for i in range(len(phone_book)): 
+#         pivot = phone_book[i] 
+#         for j in range(i+1, len(phone_book)): 
+#             strlen = min(len(pivot), len(phone_book[j])) 
+#             if pivot[:strlen] == phone_book[j][:strlen]: 
+#                 return False 
             
-    return True
+#     return True
+
+def solution(phone_book):
+    phone_book_dict = {}
+
+    for phone in phone_book:
+        phone_book_dict[phone] = True
+    
+    for phone in phone_book:
+        for i in range(1, len(phone)):
+            print(phone[:i])
+    
 
 if __name__ == "__main__":
 
