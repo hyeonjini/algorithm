@@ -25,17 +25,20 @@ input = sys.stdin.readline
 #     return True
 
 def solution(phone_book):
+    answer = True
     phone_book_dict = {}
 
-    for phone in phone_book:
+    for phone in phone_book: # O(N)
         phone_book_dict[phone] = True
     
-    for phone in phone_book:
-        for i in range(1, len(phone)):
-            print(phone[:i])
+    for phone in phone_book: # O(N)
+        for i in range(1, len(phone)): # O(1)
+            if phone[:i] in phone_book_dict:
+                answer = False
     
+    return answer
 
 if __name__ == "__main__":
 
-    phone_book = ["123","456","789"]
+    phone_book = ["119", "97674223", "1195524421"]
     print(solution(phone_book))
