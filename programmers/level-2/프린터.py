@@ -22,7 +22,6 @@ def solution(priorities, location):
         else:
             work.append([current, target])
 
-
     return answer
 
 if __name__ == "__main__":
