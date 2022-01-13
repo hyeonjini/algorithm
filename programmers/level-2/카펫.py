@@ -7,6 +7,9 @@ def solution(brown, yellow):
     max_width = (brown - 2) // 2
     for w in range(max_width, 2, -1):
         for h in range(3, w + 1):
+            if (w*2) + (h*2) - 4 != brown:
+                continue
+            print(f"가로 길이 후보 : {w} 세로 길이는 {h}")
             rectangle = w * h
             if (rectangle - brown) == yellow:
                 return w, h
