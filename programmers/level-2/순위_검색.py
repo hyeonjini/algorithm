@@ -1,19 +1,53 @@
 """
 순위 검색
 """
+def binary_search(arr, target, key):
+    
+    left = 0
+    right = len(arr) - 1
+
+    mid = (left + right) // 2
+    # print("target:", target)
+    while left <= right:
+
+        # print(left, right)
+        mid = (left + right) // 2
+
+        if target < int(arr[mid][key]):
+            right = mid - 1
+
+        elif target > int(arr[mid][key]):
+            left = mid + 1
+        
+        else: # target 과 mid가 같은 경우 mid를 1씩 줄여보면서 변화는 부분 찾기
+            while mid > 0:
+                mid -= 1
+                if target > int(arr[mid][key]):
+                    return mid + 1
+            return mid
+    # print("arr[mid]:", arr[mid][key], "target:", target)
+    return mid + 1 if int(arr[mid][key]) < target else mid
+
 def solution(info, query):
     answer = []
 
     info = [item.split() for item in info]
-    info.sort(key=lambda x : -int(x[-1])) # score 내림차순 정렬
+    info.sort(key=lambda x : int(x[-1])) # score 내림차순 정렬
     query = [[sub for sub in item.split() if sub != "and"] for item in query]
 
+    # for i in info:
+    #     print("info", i)
+    # print('query', query)
+    
     for q in query:
         count = 0
-        for i in range(len(info)):
-            app = info[i]
-            if int(app[-1]) < int(q[-1]):
-                break
+        # print(q)
+        start = binary_search(info, int(q[-1]), 4)
+
+
+        for i in range(len(info[start:])):
+
+            app = info[start + i]
             if not (q[0] == app[0] or q[0] == "-"):
                 continue
             if not (q[1] == app[1] or q[1] == "-"):
