@@ -25,12 +25,12 @@ def solution(maps):
 
             if nx == 0 and ny == 0:
                 continue
-            
+
             if maps[nx][ny] == 1:
                 maps[nx][ny] = maps[x][y] + 1
                 q.append((nx, ny))
                 
-    print(maps)
+    # print(maps)
     return maps[n-1][m-1] if maps[n-1][m-1] != 1 else -1
 
 if __name__ == "__main__":

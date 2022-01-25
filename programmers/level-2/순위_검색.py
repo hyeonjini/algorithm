@@ -28,7 +28,7 @@ def binary_search(arr:list, target:int):
 
     mid = (left + right) // 2
     if mid == -1 :
-        return -1
+        return 0
     while left <= right:
 
         mid = (left + right) // 2
