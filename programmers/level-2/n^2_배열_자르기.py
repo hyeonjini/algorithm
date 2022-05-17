@@ -31,30 +31,40 @@ import time
 #     print(f"answer size: {len(answer)}")
 #     return answer[left:right+1]
 
+# def solution(n, left, right):
+#     answer = []
+
+#     target = [i for i in range(1, n+1)]
+#     mask = [0] * n
+
+#     for i in range(n):
+#         target = mask_sum(mask, target)
+#         mask[i] = 1
+#         answer += target
+#         # print(f"target: {target}")
+#         # print(f"mask: {mask}")
+    
+#     return answer[left:right+1]
+
+# def mask_sum(mask, target):
+
+#     for i in range(len(mask)):
+#         target[i] += mask[i]
+    
+#     return target
+
 def solution(n, left, right):
     answer = []
 
-    target = [i for i in range(1, n+1)]
-    mask = [0] * n
-
-    for i in range(n):
-        target = mask_sum(mask, target)
-        mask[i] = 1
-        answer += target
-        # print(f"target: {target}")
-        # print(f"mask: {mask}")
+    for i in range(left, right+1):
+        v, r = (i // n) + 1, (i % n) + 1
+        answer.append(max(v, r))
     
-    return answer[left:right+1]
+    print(answer)
 
-def mask_sum(mask, target):
-
-    for i in range(len(mask)):
-        target[i] += mask[i]
-    
-    return target
-
+    return answer
 if __name__ == "__main__":
-    n = 10000
+    n = 1000000
     left = 519995
     right = 520000
     # n = 3
