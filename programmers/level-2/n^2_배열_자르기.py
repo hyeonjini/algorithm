@@ -59,8 +59,6 @@ def solution(n, left, right):
     for i in range(left, right+1):
         v, r = (i // n) + 1, (i % n) + 1
         answer.append(max(v, r))
-    
-    print(answer)
 
     return answer
 if __name__ == "__main__":
