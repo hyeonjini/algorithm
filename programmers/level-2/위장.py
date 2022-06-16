@@ -2,7 +2,6 @@
 위장
 """
 from collections import defaultdict
-from itertools import combinations
 def solution(clothes):
     answer = 1
     closet = defaultdict(list)

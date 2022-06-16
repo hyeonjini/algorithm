@@ -19,7 +19,7 @@ def solution(str1, str2):
     differ = duplicate_differ_set(str1, str2)
 
     if (len(inter) == 0) and (len(differ) == 0): # 공집합
-        return 1
+        return 1 * 65536
     
     answer = len(inter) / len(differ)
 

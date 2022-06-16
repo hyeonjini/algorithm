@@ -54,7 +54,7 @@ def mask_sum(mask, target):
     return target
 
 if __name__ == "__main__":
-    n = 10000
+    n = 1000
     left = 519995
     right = 520000
     # n = 3
