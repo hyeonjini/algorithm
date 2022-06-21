@@ -6,7 +6,7 @@ def solution(rows, columns, queries):
     # 행렬 초기화
     matrix = [[j for j in range(i, i+columns)] for i in range(1, rows*columns+1, columns)]
 
-    print_matrix(matrix)
+    
     for query in queries:
         x1, y1, x2, y2 = [x-1 for x in query]
 
@@ -36,7 +36,7 @@ def solution(rows, columns, queries):
         answer.append(min_value)
         # break
 
-        print_matrix(matrix)
+        # print_matrix(matrix)
     return answer
 
 def print_matrix(matrix):
