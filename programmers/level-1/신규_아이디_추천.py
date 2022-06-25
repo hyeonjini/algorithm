@@ -38,7 +38,7 @@ def valid_char(new_id):
             temp += char
         if ord(char) in special:
             temp += char
-
+    
     return temp
 
 # 3단계 연속된 dot 병합

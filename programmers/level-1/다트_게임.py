@@ -9,14 +9,10 @@ def solution(dartResult):
     score = ""
     while len(dartResult) > 1:
 
-        try:
-            print(dartResult, score, index, dartResult[index])
-        except:
-            print(index)
         if dartResult[index].isdigit() or dartResult[index] == " ":
             if index > 1:
                 game.append(int(score))
-                print(game)
+                
                 game_index += 1
                 dartResult = dartResult[index:]
                 index = 0

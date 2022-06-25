@@ -16,9 +16,8 @@ def solution(n, arr1, arr2):
         x = x.replace("1", "#")
         x = x.replace("0", " ")
 
-        print(x)
         answer.append(x)
-        
+
     return answer
 if __name__ == "__main__":
     n = 5
