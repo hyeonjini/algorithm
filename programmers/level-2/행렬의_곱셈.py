@@ -1,12 +1,16 @@
 def solution(arr1, arr2):
     
     answer = [[0] * len(arr2[0]) for _ in range(len(arr1))]
-    for i in range(len(arr1)):
+    # for i in range(len(arr1)):
 
-        for j in range(len(arr2[0])):
-            for n, m in zip(arr1[i], [arr[j] for arr in arr2]):
-                answer[i][j] += n * m
+    #     for j in range(len(arr2[0])):
+    #         for n, m in zip(arr1[i], [arr[j] for arr in arr2]):
+    #             answer[i][j] += n * m
 
+    for i, row in enumerate(arr1):
+        for j, col in enumerate(zip(*arr2)):
+            answer[i][j] = sum([r * j for r, j in zip(row, col)])
+            
     return answer
 
 if __name__ == "__main__":
