@@ -78,7 +78,6 @@ class ParkingArea():
         return result
     
 
-
 def solution(fees, records):
     parking_area = ParkingArea(fees)
 
