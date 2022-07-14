@@ -3,33 +3,23 @@ from typing import List
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
         
-        pivot = len(nums) // 2
+        left = 0
+        right = sum(nums)
 
-        visited = [True] * len(nums)
+        pre_pivot = 0
+        for i in range(len(nums)):
 
-        while pivot > 0 and pivot < len(nums) - 1:
-
-            left = sum(nums[:pivot])
-            right = sum(nums[pivot+1:])
-            
-            visited[pivot] = False
+            right -= nums[i]
+            left += pre_pivot
 
             if left == right:
-                return pivot
+                return i
 
-            if left < right:
-                if not visited[pivot + 1]:
-                    break
-                pivot += 1
+            pre_pivot = nums[i]
 
-
-            else:
-                if not visited[pivot - 1]:
-                    break
-                pivot -= 1
-
-        
         return -1
+
+            
 
 
 if __name__ == "__main__":
