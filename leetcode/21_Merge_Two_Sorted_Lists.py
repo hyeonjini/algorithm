@@ -1,7 +1,6 @@
 # Definition for singly-linked list.
 
 from typing import Optional
-from heapq import heappush, heappop
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -11,28 +10,29 @@ class ListNode:
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         
-        q = []
-        
-        while list1:
-            heappush(q, list1.pop(-1))
-        
-        while list2:
-            heappush(q, list2.pop(-1))
+        head = ListNode(-1)
+        current_node = head
 
+        while list1 != None and list2 != None:
+            if list1.val <= list2.val:
+                current_node.next = list1
+                list1 = list1.next
 
-        answer = []
-        while q:
-            answer.append(heappop(q))
+            else:
+                current_node.next = list2
+                list2 = list2.next
 
-        return answer
+            current_node = current_node.next
+
+        if list1 != None:
+            current_node.next = list1
+        else:
+            current_node.next = list2
+
+        return head.next
 
 
 
         
 if __name__ == "__main__":
     solution = Solution()
-
-
-    assert solution.mergeTwoLists(list1 = [ListNode(1, 2), ListNode(2, 4), ListNode(4)], list2 = [ListNode(1, 3), ListNode(3, 4), ListNode(4)]) == [ListNode(1,1), ListNode(1,2), ListNode(2,3), ListNode(3, 4), ListNode(4,4), ListNode(4)]
-    assert solution.mergeTwoLists(list1 = [], list2 = []) == []
-    assert solution.mergeTwoLists(list1 = [], list2 = [ListNode(0)]) == [ListNode(0)]
