@@ -14,5 +14,6 @@ class Solution:
         
 if __name__ == "__main__":
     solution = Solution()
-
+    assert solution.mergeTwoLists(list1 = [1,2,4], list2 = [1,3,4]) == [1,1,2,3,4,4]
     assert solution.mergeTwoLists(list1 = [], list2 = []) == []
+    assert solution.mergeTwoLists(list1 = [], list2 = [0]) == [0]
